@@ -78,6 +78,12 @@
     ]
   },
   {
+    "label": "menuGo",
+    "sub": [
+      { "label": "menuBuildProject", "command": "golang:build" }
+    ]
+  },
+  {
     "label": "menuSettings",
     "sub": [
       { "label": "menuUserPrefs", "command": "session:open-settings-file", "argument": "user" },

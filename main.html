@@ -7,19 +7,19 @@
     <style id="caret-theme"></style>
   </head>
   <body>
-  
+
     <div class="titlebar">
-      <b class="app-name">Caret</b>
+      <b class="app-name">Let's Go</b>
       <ul class="toolbar"></ul>
       <div class="window-controls">
         <a command="app:minimize" title="Minimize">-</a>
         <a command="app:maximize" title="Maximize">+</a>
-        <a class="close" command="app:exit" title="Close">~</a>
+        <a class="close" command="app:exit" title="Close">X</a>
       </div>
     </div>
-    
+
     <div class="central">
-    
+
       <div class="project">
         <div class="tree"></div>
         <div class="load-ui">
@@ -27,14 +27,14 @@
           <div class="progress"></div>
         </div>
       </div>
-      
+
       <div class="editing">
         <div class="tabs"></div>
         <div id="editor"></div>
       </div>
-      
+
     </div>
-    
+
     <div class="bottom-bar">
       <div class="status-text"></div>
       <div class="mode-theme">
@@ -42,12 +42,12 @@
         <select class="theme" command="editor:theme" tabindex=-1 title="Select editor theme"></select>
       </div>
     </div>
-    
+
     <div class="command-line">
       <input type="text" placeholder="caret:command arguments">
       <a command="app:hide-prompt" class="close" title="Hide prompt">&times;</a>
     </div>
-    
+
     <div class="palette enter">
       <div class="main">
         <h1 class="mode"></h1>
@@ -55,9 +55,9 @@
       </div>
       <ul class="results"></ul>
     </div>
-    
+
     <script src="js/ace/ace.js"></script>
     <script data-main="./js/main.js" src="require.js"></script>
-    
+
   </body>
 </html>

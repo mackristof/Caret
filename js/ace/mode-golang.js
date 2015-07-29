@@ -437,8 +437,8 @@ var CstyleBehaviour = function() {
                 if (leftChar == "\\" && token && /escape/.test(token.type))
                     return null;
                 
-                var stringBefore = token && /string/.test(token.type);
-                var stringAfter = !rightToken || /string/.test(rightToken.type);
+                var stringBefore = token && /string|escape/.test(token.type);
+                var stringAfter = !rightToken || /string|escape/.test(rightToken.type);
                 
                 var pair;
                 if (rightChar == quote) {
@@ -694,14 +694,16 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 });
 
-ace.define("ace/mode/golang",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/golang_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/behaviour/cstyle","ace/mode/folding/cstyle"], function(require, exports, module) {
+ace.define("ace/mode/golang",["require","exports","module","ace/lib/oop","ace/lib/net","ace/mode/text","ace/mode/golang_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/behaviour/cstyle","ace/mode/folding/cstyle"], function(require, exports, module) {
 
 var oop = require("../lib/oop");
+var net = require("../lib/net");
 var TextMode = require("./text").Mode;
 var GolangHighlightRules = require("./golang_highlight_rules").GolangHighlightRules;
 var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
 var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
 var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+
 
 var Mode = function() {
     this.HighlightRules = GolangHighlightRules;
@@ -711,7 +713,7 @@ var Mode = function() {
 oop.inherits(Mode, TextMode);
 
 (function() {
-    
+
     this.lineCommentStart = "//";
     this.blockComment = {start: "/*", end: "*/"};
 
@@ -725,7 +727,7 @@ oop.inherits(Mode, TextMode);
         if (tokens.length && tokens[tokens.length-1].type == "comment") {
             return indent;
         }
-        
+
         if (state == "start") {
             var match = line.match(/^.*[\{\(\[]\s*$/);
             if (match) {
@@ -742,6 +744,28 @@ oop.inherits(Mode, TextMode);
 
     this.autoOutdent = function(state, doc, row) {
         this.$outdent.autoOutdent(doc, row);
+    };
+    this.getCompletions = function(state, session, pos, prefix, callback) {
+        var countLine = function(line){
+          return line.length + 1;
+        }
+        var lines = session.getValue().split(/\n/);
+        var count = 0;
+        for (i = 0; i < pos.row; i++) {
+            count += countLine(lines[i]);
+        }
+        count += pos.column;
+        net.post('http://localhost:7524/', 'cursor='+count ,session.getValue())
+          .then(function (data) {
+            console.log('data arrived'+ data);
+            callback(null, JSON.parse(data));
+
+          })
+          .catch(function (err) {
+            console.error('Augh, there was an error!', err.statusText);
+          });
+
+
     };
 
     this.$id = "ace/mode/golang";

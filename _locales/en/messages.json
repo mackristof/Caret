@@ -23,7 +23,7 @@
   "menuClose": { "message": "Close File" },
   "menuPrint": { "message": "Print" },
   "menuExit": { "message": "Exit" },
-  
+
   "menuEdit": { "message": "Edit" },
   "menuUndo": { "message": "Undo" },
   "menuRedo": { "message": "Redo" },
@@ -49,7 +49,7 @@
   "menuToLowercase": { "message": "To Lowercase" },
   "menuMoveLinesUp": { "message": "Move Lines Up" },
   "menuMoveLinesDown": { "message": "Move Lines Down" },
-  
+
   "menuTools": { "message": "Tools" },
   "menuGoToAnything": { "message": "Go To..." },
   "menuGoToLine": { "message": "Go to Line" },
@@ -59,7 +59,7 @@
   "menuToggleMacro": { "message": "Toggle Macro Recording" },
   "menuReplayMacro": { "message": "Replay Macro" },
   "menuWordCount": { "message": "Word Count" },
-  
+
   "menuProject": { "message": "Project" },
   "menuAddDir": { "message": "Add Directory" },
   "menuRemoveAllDirs": { "message": "Remove All Directories" },
@@ -68,7 +68,10 @@
   "menuEditProject": { "message": "Edit Current Project" },
   "menuOpenProject": { "message": "Open Project File" },
   "menuClearProject": { "message": "Clear Project" },
-  
+
+  "menuGo": {"message": "Go"},
+  "menuBuildProject": {"message": "Build"},
+
   "menuSettings": { "message": "Settings" },
   "menuUserPrefs": { "message": "User Preferences" },
   "menuKeyboard": { "message": "Keyboard" },
@@ -89,7 +92,7 @@
   "menuHelp": { "message": "Help" },
   "menuCheckForUpdates": { "message": "Check for Updates" },
   "menuAboutCaret": { "message": "About Caret" },
-  
+
   "dialogModifiedBackground": { "message": "This file has been modified since the last time it was saved. Would you like to reload?" },
   "dialogModifiedUnsaved": { "message": "$1 has been modified.\nDo you want to save changes?" },
   "dialogCancel": { "message": "Cancel" },
@@ -98,20 +101,20 @@
   "dialogSave": { "message": "Save" },
   "dialogDiscard": { "message": "Discard" },
   "dialogUnsaved": { "message": "$1 has unsaved work." },
-  
+
   "projectNoCurrentProject": { "message": "No project currently open." },
-  
+
   "paletteExecuting": { "message": "Executing $1..." },
-  
+
   "fileLoaded": { "message": "Loaded $1, $2 bytes" },
   "fileAutosaving": { "message": "Executing autosave for all tabs..." },
-  
+
   "editorWordCount": { "message": "$1 characters, $2 words, $3 lines" },
-  
+
   "recordingMacro": { "message": "Recording macro..." },
   "setSyntax": { "message": "Set Syntax: $1" },
   "setTheme": { "message": "Set Theme: $1" },
-  
+
   "notificationUpdateAvailable": { "message": "Caret: Update available" },
   "notificationUpdateDetail": { "message": "An update to version $1 is available. Would you like to update and restart now?" },
   "notificationNoUpdateTitle": { "message": "No updates available" },
